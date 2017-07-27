@@ -1,0 +1,192 @@
+﻿<Window x:Class="ContractStatementManagementSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Menu>
+                <MenuItem Header="用户">
+                    <MenuItem Header="登录"></MenuItem>
+                    <MenuItem Header="注销"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <ListView MinWidth="150" Name="listView_Contract" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn>
+                                    <GridViewColumn.Header>
+                                        <Label Width="150" HorizontalContentAlignment="Center" Content="合同名称">
+                                            <Label.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="添加合同" Click="btn_InsertContract_Click"></MenuItem>
+                                                </ContextMenu>
+                                            </Label.ContextMenu>
+                                        </Label>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label Width="150" Content="{Binding Path=Name}">
+                                                <Label.ContextMenu>
+                                                    <ContextMenu>
+                                                        <MenuItem Header="删除合同" Click="btn_deleteContract_Click"></MenuItem>
+                                                    </ContextMenu>
+                                                </Label.ContextMenu>
+                                            </Label>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1">
+                    <Button Name="btn_InsertContract" Content="添加合同"  Margin="5" Click="btn_InsertContract_Click"></Button>
+                    <Button Name="btn_deleteContract" Content="删除合同" Margin="5" Click="btn_deleteContract_Click"></Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <TabControl>
+                    <TabItem Header="仓库">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="仓储" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="需求量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="发货量" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已发货量" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="未发货量" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=ShippedDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=ProjectName}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="btn_InsertWarehouse" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="会计">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="确认收入依据" Width="*" Binding="{Binding Path=AffirmIncomeGist}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="合同金额" Width="*" Binding="{Binding Path=ContractAmount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="确认收入金额" Width="*" Binding="{Binding Path=AffirmIncomeAmount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已开票数" Width="*" Binding="{Binding Path=InvoiceCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已开票金额" Width="*" Binding="{Binding Path=InvoiceAmount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已结算成本" Width="*" Binding="{Binding Path=Cost}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="直接材料" Width="*" Binding="{Binding Path=Material}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="工人成本" Width="*" Binding="{Binding Path=Worker}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="制造费用" Width="*" Binding="{Binding Path=Manufacturing_Costs}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="小计" Width="*" Binding="{Binding Path=Subtotal}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="毛利" Width="*" Binding="{Binding Path=GrossrofitMargin}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="btn_InsertAccountant" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="生产">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="生产日期" Width="*" Binding="{Binding Path=ProductionDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="需求量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="生产量" Width="*" Binding="{Binding Path=ProductionCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已生产量" Width="*" Binding="{Binding Path=TotalProduct}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="未生产量" Width="*" Binding="{Binding Path=NOTotalProduct}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=projectName}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="btn_InsertProduction" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="工程">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=ShippedDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="竣工日期" Width="*" Binding="{Binding Path=DompletedDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="竣工验收单日期" Width="*" Binding="{Binding Path=DompletedAcceptanceDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=projectName}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="btn_InsertProject" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="销售">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="合同金额" Width="*" Binding="{Binding Path=ContractAmount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="需求量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="合同日期" Width="*" Binding="{Binding Path=ContractDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=ShippedDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="回执日期" Width="*" Binding="{Binding Path=ReturnDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="开具发票日期" Width="*" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="确认收入日期" Width="*" Binding="{Binding Path=AffirmIncomeData}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="确认收入金额" Width="*" Binding="{Binding Path=AffirmIncomeAmount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已开票数" Width="*" Binding="{Binding Path=InvoiceCount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已开票金额" Width="*" Binding="{Binding Path=InvoiceAmount}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="已收入金额" Width="*" Binding="{Binding Path=AmountCollection}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=projectName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="确认收入依据" Width="*" Binding="{Binding Path=AffirmIncomeGist}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="btn_InsertSales" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="ContractStatementManagementSystem.InsertProduction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="增加记录" Height="200" Width="300" WindowStartupLocation="CenterScreen">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="生产日期："/>
+            <TextBox Name="tb_ProductionDate" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="需求量："/>
+            <TextBox Name="tb_DemandCount" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
+    </StackPanel>
+</Window>

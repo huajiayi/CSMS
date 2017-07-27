@@ -1,0 +1,40 @@
+﻿<Window x:Class="ContractStatementManagementSystem.InsertSales"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="增加记录" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="回执日期："/>
+            <TextBox Name="tb_ReturnDate" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="开具发票日期："/>
+            <TextBox Name="tb_InvoiceDate" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="确认收入日期："/>
+            <TextBox Name="tb_AffirmIncomeData" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="确认收入金额："/>
+            <TextBox Name="tb_AffirmIncomeAmount" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="已开票数："/>
+            <TextBox Name="tb_InvoiceCount" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="已开票金额："/>
+            <TextBox Name="tb_InvoiceAmount" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="已收入金额："/>
+            <TextBox Name="tb_AmountCollection" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="确认收入依据："/>
+            <TextBox Name="tb_AffirmIncomeGist" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
+    </StackPanel>
+</Window>
