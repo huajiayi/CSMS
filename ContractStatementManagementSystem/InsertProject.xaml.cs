@@ -26,8 +26,6 @@ namespace ContractStatementManagementSystem
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            string dompletedDate = tb_DompletedDate.Text.Trim(); //竣工日期
-            string dompletedAcceptanceDate = tb_DompletedAcceptanceDate.Text.Trim(); //取得竣工验收单日期
 
             this.Close();
         }

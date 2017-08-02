@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ContractStatementManagementSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="MainWindow" Height="350" Width="525" MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
     </Window.Resources>
     <Grid>
@@ -64,125 +64,331 @@
             </Grid>
             <Grid Grid.Column="2">
                 <TabControl>
-                    <TabItem Header="仓库">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <DataGrid>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="仓储" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="需求量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="发货量" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已发货量" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="未发货量" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=ShippedDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=ProjectName}"></DataGridTextColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Name="btn_InsertWarehouse" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                    <TabItem Header="合同内容">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30">
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="合同名称："/>
+                                    <Label Content="九圩港泵站工程在线监测项目"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="合同方客户名称："/>
+                                    <Label Content="江苏航天水力有限公司"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="合同类别："/>
+                                    <Label Content="水泵监测系统"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="合同金额（人民币元）："/>
+                                    <Label Content="￥1120000.00 "/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="数量（套/个）："/>
+                                    <Label Content="5.00"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="合同编号："/>
+                                    <Label Content="MHCC-wx-201505-XS010"/>
+                                </StackPanel>
+                                <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label Content="合同签署日期："/>
+                                    <Label Content="2015/6/10"/>
+                                </StackPanel>
                             </StackPanel>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="会计">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <DataGrid>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="确认收入依据" Width="*" Binding="{Binding Path=AffirmIncomeGist}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="合同金额" Width="*" Binding="{Binding Path=ContractAmount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="确认收入金额" Width="*" Binding="{Binding Path=AffirmIncomeAmount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已开票数" Width="*" Binding="{Binding Path=InvoiceCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已开票金额" Width="*" Binding="{Binding Path=InvoiceAmount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已结算成本" Width="*" Binding="{Binding Path=Cost}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="直接材料" Width="*" Binding="{Binding Path=Material}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="工人成本" Width="*" Binding="{Binding Path=Worker}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="制造费用" Width="*" Binding="{Binding Path=Manufacturing_Costs}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="小计" Width="*" Binding="{Binding Path=Subtotal}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="毛利" Width="*" Binding="{Binding Path=GrossrofitMargin}"></DataGridTextColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Name="btn_InsertAccountant" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
-                            </StackPanel>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="生产">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <DataGrid>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="生产日期" Width="*" Binding="{Binding Path=ProductionDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="需求量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="生产量" Width="*" Binding="{Binding Path=ProductionCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已生产量" Width="*" Binding="{Binding Path=TotalProduct}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="未生产量" Width="*" Binding="{Binding Path=NOTotalProduct}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=projectName}"></DataGridTextColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Name="btn_InsertProduction" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
-                            </StackPanel>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="工程">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <DataGrid>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=ShippedDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="竣工日期" Width="*" Binding="{Binding Path=DompletedDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="竣工验收单日期" Width="*" Binding="{Binding Path=DompletedAcceptanceDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=projectName}"></DataGridTextColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Name="btn_InsertProject" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
-                            </StackPanel>
-                        </Grid>
+                            <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto">
+                                <DataGrid>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="服务条款" MinWidth="150"></DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </ListView>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="销售">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <DataGrid>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="公司名" Width="*" Binding="{Binding Path=ContractName}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="合同金额" Width="*" Binding="{Binding Path=ContractAmount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="需求量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="合同日期" Width="*" Binding="{Binding Path=ContractDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=ShippedDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="回执日期" Width="*" Binding="{Binding Path=ReturnDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="开具发票日期" Width="*" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="确认收入日期" Width="*" Binding="{Binding Path=AffirmIncomeData}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="确认收入金额" Width="*" Binding="{Binding Path=AffirmIncomeAmount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已开票数" Width="*" Binding="{Binding Path=InvoiceCount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已开票金额" Width="*" Binding="{Binding Path=InvoiceAmount}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="已收入金额" Width="*" Binding="{Binding Path=AmountCollection}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="项目名" Width="*" Binding="{Binding Path=projectName}"></DataGridTextColumn>
-                                    <DataGridTextColumn Header="确认收入依据" Width="*" Binding="{Binding Path=AffirmIncomeGist}"></DataGridTextColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Name="btn_InsertSales" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                        <ScrollViewer>
+                            <StackPanel Margin="20">
+                                <Expander IsExpanded="True" Header="最新数据">
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="合同名称："></Label>
+                                                <Label Content="江苏航天水力有限公司"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="总金额："></Label>
+                                                <Label Content="￥1120000"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="50,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已收金额："></Label>
+                                                <Label Content="￥1120000"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="未收金额："></Label>
+                                                <Label Content="￥0"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander IsExpanded="True" Header="日志">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Name="btn_InsertSales" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                        </StackPanel>
+                                        <DataGrid Height="400" Margin="10">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="收款金额" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander>
                             </StackPanel>
-                        </Grid>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="生产">
+                        <ScrollViewer>
+                            <StackPanel Margin="20">
+                                <Expander IsExpanded="True" Header="最新数据">
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="合同名称："></Label>
+                                                <Label Content="江苏航天水力有限公司"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="需求量："></Label>
+                                                <Label Content="100"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="50,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已生产数量："></Label>
+                                                <Label Content="70"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="未生产数量："></Label>
+                                                <Label Content="0"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander IsExpanded="True" Header="日志">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Name="btn_InsertProduction" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                        </StackPanel>
+                                        <DataGrid Height="400" Margin="10">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="生产数量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="生产日期" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="仓库">
+                        <ScrollViewer>
+                            <StackPanel Margin="20">
+                                <Expander IsExpanded="True" Header="最新数据">
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="合同名称："></Label>
+                                                <Label Content="江苏航天水力有限公司"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="需求量："></Label>
+                                                <Label Content="100"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="库存量："></Label>
+                                                <Label Content="20"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="50,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已发货数量："></Label>
+                                                <Label Content="50"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="未发货数量："></Label>
+                                                <Label Content="50"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander IsExpanded="True" Header="日志">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Name="btn_InsertWarehouse" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                        </StackPanel>
+                                        <DataGrid Height="400" Margin="10">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="发货数量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="发货日期" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="工程">
+                        <ScrollViewer>
+                            <StackPanel Margin="20">
+                                <Expander IsExpanded="True" Header="最新数据">
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="合同名称："></Label>
+                                                <Label Content="江苏航天水力有限公司"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="施工日期："></Label>
+                                                <Label Content="2017/1/2"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="50,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="竣工日期："></Label>
+                                                <Label Content="2017/1/2"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="取得竣工验收单日期："></Label>
+                                                <Label Content="2017/1/2"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander IsExpanded="True" Header="日志">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Name="btn_InsertProject" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                        </StackPanel>
+                                        <DataGrid Height="400" Margin="10">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="施工日期" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="竣工日期" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="取得竣工验收单日期" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="会计">
+                        <ScrollViewer>
+                            <StackPanel Margin="20">
+                                <Expander IsExpanded="True" Header="最新数据">
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="合同名称："></Label>
+                                                <Label Content="江苏航天水力有限公司"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="总金额："></Label>
+                                                <Label Content="￥1120000"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已收金额："></Label>
+                                                <Label Content="￥1120000"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="未收金额："></Label>
+                                                <Label Content="￥0"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="确认收入依据："></Label>
+                                                <Label Content="其他收货验收单"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="确认收入数量："></Label>
+                                                <Label Content="5.00"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="确认收入金额（不含税）："></Label>
+                                                <Label Content="￥0"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Margin="50,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已开票数量："></Label>
+                                                <Label Content="100"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已开票金额（含税）："></Label>
+                                                <Label Content="￥95000"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已收款金额："></Label>
+                                                <Label Content="￥95000"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="已结转成本数量："></Label>
+                                                <Label Content="1.00"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="直接材料："></Label>
+                                                <Label Content="1.00"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="小计："></Label>
+                                                <Label Content="￥20702.83"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="2017年1-12月毛利率："></Label>
+                                                <Label Content="0.74"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander IsExpanded="True" Header="日志">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Name="btn_InsertAccountant" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                        </StackPanel>
+                                        <DataGrid Height="400" Margin="10">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="确认收入依据" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="确认收入数量" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="确认收入金额 (不含税)" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="已开票数量" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="已开票金额(含税)" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="已收款金额" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="已结转成本数量" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="直接材料" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="小计" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="2017年1-12月毛利率" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </ScrollViewer>
                     </TabItem>
                 </TabControl>
             </Grid>

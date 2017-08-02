@@ -4,12 +4,16 @@
         Title="增加记录" Height="200" Width="300" WindowStartupLocation="CenterScreen">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="发货量："/>
+            <TextBlock Margin="5" Text="日志名："/>
             <TextBox Name="tb_Shipments" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="发货日期："/>
+            <TextBlock Margin="5" Text="发货数量："/>
             <TextBox Name="tb_ShippedDate" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="发货日期："/>
+            <TextBox Name="tb_" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
     </StackPanel>

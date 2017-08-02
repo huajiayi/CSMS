@@ -23,14 +23,6 @@ namespace ContractStatementManagementSystem
         public MainWindow()
         {
             InitializeComponent();
-            List<TestName> nnn = new List<TestName>();
-            for (int i = 0; i < 50; i++)
-            {
-                TestName testname = new TestName();
-                testname.Name = "第" + i + "个项目";
-                nnn.Add(testname);
-            }
-            listView_Contract.ItemsSource = nnn;
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)

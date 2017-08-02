@@ -109,12 +109,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Accountant.cs" />
-    <Compile Include="Model\Production.cs" />
-    <Compile Include="Model\Project.cs" />
-    <Compile Include="Model\Sales.cs" />
-    <Compile Include="Model\TestName.cs" />
-    <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -140,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

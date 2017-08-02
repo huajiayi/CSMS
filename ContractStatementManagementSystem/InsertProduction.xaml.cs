@@ -26,8 +26,6 @@ namespace ContractStatementManagementSystem
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            string productionDate = tb_ProductionDate.Text.Trim(); //生产日期
-            string demandCount = tb_DemandCount.Text.Trim(); //需求量
 
             this.Close();
         }

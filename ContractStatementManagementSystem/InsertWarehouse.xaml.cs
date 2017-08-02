@@ -26,8 +26,6 @@ namespace ContractStatementManagementSystem
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            string shipments = tb_Shipments.Text.Trim(); //发货量
-            string shippedDate = tb_ShippedDate.Text.Trim(); //发货日期
 
             this.Close();
         }
