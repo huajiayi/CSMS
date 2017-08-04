@@ -73,6 +73,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="InsertService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InsertWarehouse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +104,9 @@
     <Compile Include="InsertSales.xaml.cs">
       <DependentUpon>InsertSales.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InsertService.xaml.cs">
+      <DependentUpon>InsertService.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InsertWarehouse.xaml.cs">
       <DependentUpon>InsertWarehouse.xaml</DependentUpon>
     </Compile>
@@ -109,6 +116,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Accountant.cs" />
+    <Compile Include="Model\AccountantLog.cs" />
+    <Compile Include="Model\ContractContent.cs" />
+    <Compile Include="Model\Contract_Data.cs" />
+    <Compile Include="Model\Main.cs" />
+    <Compile Include="Model\Productioner.cs" />
+    <Compile Include="Model\ProductionerLog.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ProjectLog.cs" />
+    <Compile Include="Model\Sales.cs" />
+    <Compile Include="Model\SalesLog.cs" />
+    <Compile Include="Model\Warehouse.cs" />
+    <Compile Include="Model\WarehouseLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -135,9 +155,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

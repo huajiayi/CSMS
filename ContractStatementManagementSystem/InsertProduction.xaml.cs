@@ -19,6 +19,7 @@ namespace ContractStatementManagementSystem
     /// </summary>
     public partial class InsertProduction : Window
     {
+        public MainWindow mw;
         public InsertProduction()
         {
             InitializeComponent();
@@ -26,7 +27,11 @@ namespace ContractStatementManagementSystem
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            string logName = tb_LogName.Text.ToString().Trim();
+            string productionQuantity = tb_ProductionQuantity.Text.ToString().Trim();
+            string productionDate = tb_ProductionDate.Text.ToString().Trim();
 
+            MessageBox.Show("操作成功！");
             this.Close();
         }
     }

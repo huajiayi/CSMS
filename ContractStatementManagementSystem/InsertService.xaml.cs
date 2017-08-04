@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ContractStatementManagementSystem.Model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,22 +17,25 @@ using System.Windows.Shapes;
 namespace ContractStatementManagementSystem
 {
     /// <summary>
-    /// Interaction logic for InsertSales.xaml
+    /// Interaction logic for InsertService.xaml
     /// </summary>
-    public partial class InsertSales : Window
+    public partial class InsertService : Window
     {
-        public MainWindow mw; 
-        public InsertSales()
+        public MainWindow mw;
+        public InsertService()
         {
             InitializeComponent();
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            string logName = tb_LogName.Text.ToString().Trim();
             string service = tb_Service.Text.ToString().Trim();
-            string amount = tb_Amount.Text.ToString().Trim();
-            mw.UpdateContractContent(logName, service, amount);
+            Contract_Data contract_Data = new Contract_Data();
+            ContractContent contractContent = mw.listView_Contract.SelectedItem as ContractContent;
+            contract_Data.ID = 1;
+            contract_Data.Service = service;
+            contract_Data.Contract_ID = contractContent.ID;
+            contractContent.Contract_Datas.Add(contract_Data);
 
             MessageBox.Show("操作成功！");
             this.Close();

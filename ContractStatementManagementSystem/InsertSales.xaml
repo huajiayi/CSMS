@@ -5,15 +5,15 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="日志名："/>
-            <TextBox Name="tb_ReturnDate" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_LogName" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="服务款项："/>
-            <TextBox Name="tb_InvoiceDate" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Service" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="收款金额："/>
-            <TextBox Name="tb_AffirmIncomeData" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Amount" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
     </StackPanel>

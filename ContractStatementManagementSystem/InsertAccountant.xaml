@@ -5,23 +5,15 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="日志名："/>
-            <TextBox Name="tb_Cost" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_LogName" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="服务款项："/>
-            <TextBox Name="tb_Material" Margin="5" Width="170" Height="23"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="收款金额："/>
-            <TextBox Name="tb_Worker" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Service" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="确认收入依据："/>
-            <TextBox Name="tb_Manufacturing_Costs" Margin="5" Width="170" Height="23"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="确认收入金额（不含税）："/>
-            <ComboBox Name="cb_Contract_Type" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Type}">
+            <ComboBox Name="cb_AffirmIncomeGist" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Type}">
                 <ComboBoxItem Content="现场改造工程竣工验收单"></ComboBoxItem>
                 <ComboBoxItem Content="OEM配套收货验收单"></ComboBoxItem>
                 <ComboBoxItem Content="其他收货验收单"></ComboBoxItem>
@@ -29,32 +21,36 @@
             </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="确认收入金额（不含税）："/>
+            <TextBox Name="tb_AffirmIncomeAmount" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="已开票数量："/>
-            <TextBox Name="tb_GrossrofitMargin" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_InvoiceCount" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="已开票金额（含税）："/>
-            <TextBox Name="tb1" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_InvoiceAmount" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="已收款金额："/>
-            <TextBox Name="tb2" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Amount" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="已结转成本数量："/>
-            <TextBox Name="tb3" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Cost" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="直接材料："/>
-            <TextBox Name="tb4" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Material" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="小计："/>
-            <TextBox Name="tb5" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Subtotal" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="2017年1-12月毛利率："/>
-            <TextBox Name="tb6" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_GrossrofitMargin" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
     </StackPanel>

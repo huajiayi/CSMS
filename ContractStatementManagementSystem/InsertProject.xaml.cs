@@ -19,6 +19,7 @@ namespace ContractStatementManagementSystem
     /// </summary>
     public partial class InsertProject : Window
     {
+        public MainWindow mw;
         public InsertProject()
         {
             InitializeComponent();
@@ -26,7 +27,13 @@ namespace ContractStatementManagementSystem
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            string logName = tb_LogName.Text.ToString().Trim();
+            string service = tb_Service.Text.ToString().Trim();
+            string constructionDate = tb_ConstructionDate.Text.ToString().Trim();
+            string dompletedDate = tb_DompletedDate.Text.ToString().Trim();
+            string dompletedAcceptanceDate = tb_DompletedAcceptanceDate.Text.ToString().Trim();
 
+            MessageBox.Show("操作成功！");
             this.Close();
         }
     }

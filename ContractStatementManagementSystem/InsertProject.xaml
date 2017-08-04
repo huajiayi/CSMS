@@ -5,15 +5,15 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="日志名："/>
-            <TextBox Name="tb1" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_LogName" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="服务款项："/>
-            <TextBox Name="tb2" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Service" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="施工日期："/>
-            <TextBox Name="tb3" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_ConstructionDate" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="竣工日期："/>

@@ -1,10 +1,10 @@
 ﻿<Window x:Class="ContractStatementManagementSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525" MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="合同报表管理系统" Height="350" Width="525" MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
     </Window.Resources>
-    <Grid>
+    <Grid Name="grid_Main">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -27,7 +27,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="35"/>
                 </Grid.RowDefinitions>
-                <ListView MinWidth="150" Name="listView_Contract" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <ListView MinWidth="150" Name="listView_Contract" ItemsSource="{Binding Path=ContractContents}" SelectedIndex="0" SelectionChanged="listView_Contract_SelectionChanged" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
@@ -43,7 +43,7 @@
                                     </GridViewColumn.Header>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Label Width="150" Content="{Binding Path=Name}">
+                                            <Label Width="150" Content="{Binding Path=ContractName}">
                                                 <Label.ContextMenu>
                                                     <ContextMenu>
                                                         <MenuItem Header="删除合同" Click="btn_deleteContract_Click"></MenuItem>
@@ -65,69 +65,83 @@
             <Grid Grid.Column="2">
                 <TabControl>
                     <TabItem Header="合同内容">
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Name="stackPanel_ContractContent" Orientation="Horizontal">
                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30">
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="合同名称："/>
-                                    <Label Content="九圩港泵站工程在线监测项目"/>
+                                    <Label Content="{Binding Path=ContractName}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="合同方客户名称："/>
-                                    <Label Content="江苏航天水力有限公司"/>
+                                    <Label Content="{Binding Path=Customer}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="合同类别："/>
-                                    <Label Content="水泵监测系统"/>
+                                    <Label Content="{Binding Path=Contract_Type}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="合同金额（人民币元）："/>
-                                    <Label Content="￥1120000.00 "/>
+                                    <Label Content="{Binding Path=Contract_Amount}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="数量（套/个）："/>
-                                    <Label Content="5.00"/>
+                                    <Label Content="{Binding Path=Count}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="合同编号："/>
-                                    <Label Content="MHCC-wx-201505-XS010"/>
+                                    <Label Content="{Binding Path=Contract_Number}"/>
                                 </StackPanel>
                                 <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Label Content="合同签署日期："/>
-                                    <Label Content="2015/6/10"/>
+                                    <Label Content="{Binding Path=Contract_Date}"/>
                                 </StackPanel>
                             </StackPanel>
-                            <ListView HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto">
-                                <DataGrid>
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="服务条款" MinWidth="150"></DataGridTextColumn>
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </ListView>
+                            <StackPanel>
+                                <ListView ItemsSource="{Binding Path=Contract_Datas}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridView.Columns>
+                                                <GridViewColumn>
+                                                    <GridViewColumn.Header>
+                                                        <Label Width="150" HorizontalContentAlignment="Center" Content="服务款项"/>
+                                                    </GridViewColumn.Header>
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <Label Width="150" Content="{Binding Path=Service}"/>
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+                                            </GridView.Columns>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button Name="btn_InsertService" Content="添加服务款项" Width="100" Click="btn_InsertService_Click"></Button>
+                            </StackPanel>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="销售">
                         <ScrollViewer>
-                            <StackPanel Margin="20">
+                            <StackPanel Name="stackPanel_Sales" Margin="20">
                                 <Expander IsExpanded="True" Header="最新数据">
                                     <StackPanel Orientation="Horizontal" Margin="10">
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="合同名称："></Label>
-                                                <Label Content="江苏航天水力有限公司"></Label>
+                                                <Label Content="{Binding Path=ContractName, NotifyOnTargetUpdated=True, Mode=TwoWay}"></Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="总金额："></Label>
-                                                <Label Content="￥1120000"></Label>
+                                                <Label Content="{Binding Path=Contract_Amount}"></Label>
                                             </StackPanel>
                                         </StackPanel>
                                         <StackPanel Margin="50,0,0,0">
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="已收金额："></Label>
-                                                <Label Content="￥1120000"></Label>
+                                                <Label Content="{Binding Path=AmountCollection}"></Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="未收金额："></Label>
-                                                <Label Content="￥0"></Label>
+                                                <Label Content="{Binding Path=NoAmountCollection}"></Label>
                                             </StackPanel>
                                         </StackPanel>
                                     </StackPanel>
@@ -135,15 +149,15 @@
                                 <Expander IsExpanded="True" Header="日志">
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="btn_InsertSales" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                            <Button Name="btn_InsertSales" Width="75" Height="23" Content="收款" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Path=SalesLogs}">
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="收款金额" Width="*" Binding="{Binding Path=Shipments}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=ShippedCount}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=NoShippedCount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=LogName}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=Service}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="收款金额" Width="*" Binding="{Binding Path=Amount}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=Operator}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=OperationDate}"></DataGridTextColumn>
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </StackPanel>
@@ -181,9 +195,9 @@
                                 <Expander IsExpanded="True" Header="日志">
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="btn_InsertProduction" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                            <Button Name="btn_InsertProduction" Width="75" Height="23" Content="生产" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="生产数量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
@@ -231,9 +245,9 @@
                                 <Expander IsExpanded="True" Header="日志">
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="btn_InsertWarehouse" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                            <Button Name="btn_InsertWarehouse" Width="75" Height="23" Content="发货" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="发货数量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
@@ -277,9 +291,9 @@
                                 <Expander IsExpanded="True" Header="日志">
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="btn_InsertProject" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                            <Button Name="btn_InsertProject" Width="75" Height="23" Content="施工" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
@@ -365,9 +379,9 @@
                                 <Expander IsExpanded="True" Header="日志">
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="btn_InsertAccountant" Width="75" Height="23" Content="增加" Margin="5" Click="btn_Insert_Click"/>
+                                            <Button Name="btn_InsertAccountant" Width="75" Height="23" Content="结算" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>

@@ -6,7 +6,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="合同名称："/>
-                <TextBox Name="tb_Contract" Margin="5" Width="170" Height="23" Text="{Binding Path=Project}"/>
+                <TextBox Name="tb_ContractName" Margin="5" Width="170" Height="23" Text="{Binding Path=Project}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="合同方客户名称："/>
@@ -38,14 +38,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="合同签署日期："/>
-                <TextBox Name="tb_Contract_Date" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Date}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBlock Margin="5" Text="服务款项："/>
-                <TextBox Name="tb1" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Date}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Margin="5" Text="（各服务款项以英文逗号隔开）"/>
+                <DatePicker Name="tb_Contract_Date" Width="170" Margin="5" FirstDayOfWeek="Monday" Text="sda" IsTodayHighlighted="True"/>
             </StackPanel>
             <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
         </StackPanel>
