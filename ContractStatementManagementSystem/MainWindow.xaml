@@ -151,7 +151,7 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Name="btn_InsertSales" Width="75" Height="23" Content="收款" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Path=SalesLogs}">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Path=SalesLogs}" IsReadOnly="True" CanUserAddRows="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=LogName}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=Service}"></DataGridTextColumn>
@@ -197,7 +197,7 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Name="btn_InsertProduction" Width="75" Height="23" Content="生产" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="生产数量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
@@ -247,7 +247,7 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Name="btn_InsertWarehouse" Width="75" Height="23" Content="发货" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="发货数量" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
@@ -293,7 +293,7 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Name="btn_InsertProject" Width="75" Height="23" Content="施工" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
@@ -381,7 +381,7 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Name="btn_InsertAccountant" Width="75" Height="23" Content="结算" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False">
+                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=Reserves}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=DemandCount}"></DataGridTextColumn>
