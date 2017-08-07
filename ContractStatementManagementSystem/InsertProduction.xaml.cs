@@ -29,7 +29,7 @@ namespace ContractStatementManagementSystem
         {
             string logName = tb_LogName.Text.ToString().Trim();
             string productionQuantity = tb_ProductionQuantity.Text.ToString().Trim();
-            string productionDate = tb_ProductionDate.Text.ToString().Trim();
+            string productionDate = DateTime.Parse(tb_ProductionDate.ToString().Trim()).ToShortDateString();
 
             MessageBox.Show("操作成功！");
             this.Close();

@@ -13,7 +13,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="发货日期："/>
-            <TextBox Name="tb_ShippedDate" Margin="5" Width="170" Height="23"/>
+            <DatePicker Name="tb_ShippedDate" Margin="5" Width="170"/>
         </StackPanel>
         <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
     </StackPanel>

@@ -29,9 +29,9 @@ namespace ContractStatementManagementSystem
         {
             string logName = tb_LogName.Text.ToString().Trim();
             string service = tb_Service.Text.ToString().Trim();
-            string constructionDate = tb_ConstructionDate.Text.ToString().Trim();
-            string dompletedDate = tb_DompletedDate.Text.ToString().Trim();
-            string dompletedAcceptanceDate = tb_DompletedAcceptanceDate.Text.ToString().Trim();
+            string constructionDate = DateTime.Parse(tb_ConstructionDate.ToString().Trim()).ToShortDateString();
+            string dompletedDate = DateTime.Parse(tb_DompletedDate.ToString().Trim()).ToShortDateString();
+            string dompletedAcceptanceDate = DateTime.Parse(tb_DompletedAcceptanceDate.ToString().Trim()).ToShortDateString();
 
             MessageBox.Show("操作成功！");
             this.Close();

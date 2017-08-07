@@ -29,7 +29,7 @@ namespace ContractStatementManagementSystem
         {
             string logName = tb_LogName.Text.ToString().Trim();
             string shipments = tb_Shipments.Text.ToString().Trim();
-            string shippedDate = tb_ShippedDate.Text.ToString().Trim();
+            string shippedDate = DateTime.Parse(tb_ShippedDate.ToString().Trim()).ToShortDateString();
 
             MessageBox.Show("操作成功！");
             this.Close();
