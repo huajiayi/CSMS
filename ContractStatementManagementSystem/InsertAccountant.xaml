@@ -33,10 +33,6 @@
             <TextBox Name="tb_InvoiceAmount" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="已收款金额："/>
-            <TextBox Name="tb_Amount" Margin="5" Width="170" Height="23"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="已结转成本数量："/>
             <TextBox Name="tb_Cost" Margin="5" Width="170" Height="23"/>
         </StackPanel>
@@ -49,9 +45,14 @@
             <TextBox Name="tb_Subtotal" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Margin="5" Text="操作人："/>
+            <TextBox Name="Name" Margin="5" Width="170" Height="23"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="2017年1-12月毛利率："/>
             <TextBox Name="tb_GrossrofitMargin" Margin="5" Width="170" Height="23"/>
         </StackPanel>
+        
         <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
     </StackPanel>
 </Window>

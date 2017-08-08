@@ -1,4 +1,4 @@
-﻿using ContractStatementManagementSystem.Model;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,28 +22,61 @@ namespace ContractStatementManagementSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Main main;
-        ContractContent contractContent; // 当前选择的合同内容页
-        Sales sale; //当前选择的销售页
+       public ObservableCollection<ContractNameT> oct { get; set; }
+        public ObservableCollection<Contract_Data> ocd { get; set; }
+        public ObservableCollection<AccountantLog> oac { get; set; }
+        public ObservableCollection<ProductionerLog> opr { get; set; }
+        public ObservableCollection<ProjectLog> opt { get; set; }
+        public ObservableCollection<SalesLog> osl { get; set; }
+        public ObservableCollection<WarehouseLog> ocw { get; set; }
+        public ObservableCollection<Accountant> aac { get; set; }
+        public ObservableCollection<Project> ppt { get; set; }
+        public ObservableCollection<Sales> ssl { get; set; }
+        public ObservableCollection<Productioner> ppr { get; set; }
+        public ObservableCollection<Warehouse>  wwh { get; set; }
+        public ContractNameT ct { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            main = new Main();
-            main.ContractContents = new ObservableCollection<ContractContent>();
-            main.Sales = new ObservableCollection<Sales>();
+            ObservableCollection<ContractNameT> oct_beforeSort = SqlQuery.ContractQuery();
+            oct =new ObservableCollection<ContractNameT> (oct_beforeSort.OrderByDescending(x => DateTime.Parse(x.Contract_Date)).ToList());
+            listView_Contract.ItemsSource = oct;
+            MClass mc = new MClass();
 
-            InsertContractContent("a","1","1","100","1","1","2017/1/1"); //假数据
-            InsertContractContent("b", "2", "2", "200", "2", "2", "2017/1/1"); //假数据
-            grid_Main.DataContext = main;
+
+           // grid_Main.DataContext ;
         }
 
         private void listView_Contract_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            contractContent = listView_Contract.SelectedItem as ContractContent;
-            stackPanel_ContractContent.DataContext = contractContent;
 
-            sale = main.Sales.Single<Sales>(o => o.Contract_ID == contractContent.ID);
-            stackPanel_Sales.DataContext = sale;
+            ct=(ContractNameT)listView_Contract.SelectedItem;
+            ocd= SqlQuery.ContractDataQuery(ct.ID);
+            ListViewSerices.ItemsSource = ocd;
+            MClass mc = new MClass();
+            aac = SqlQuery.AccountantQuery(ct.ID);
+            mc.ac = aac;
+            mc.oac = SqlQuery.AccountantLogQuery(ct.ID);
+            oac=mc.oac;
+            wwh = SqlQuery.WarehouseQuery(ct.ID);
+            mc.wh = wwh;
+            ocw = SqlQuery.WarehouseLogQuery(ct.ID);
+            mc.ocw = ocw;
+            ppr = SqlQuery.ProductionerQuery(ct.ID);
+            mc.pr = ppr;
+            opr = SqlQuery.ProductionerLogQuery(ct.ID);
+            mc.opr = opr;
+            ppt = SqlQuery.ProjectQuery(ct.ID);
+            mc.pt = ppt;
+            opt=mc.opt = SqlQuery.ProjectLogQuery(ct.ID);
+            ssl = SqlQuery.SalesQuery(ct.ID);
+            mc.sl = ssl;
+            osl= mc.osl = SqlQuery.SalesLogQuery(ct.ID);
+            mc.ct = SqlQuery.ContractVQuery(ct.ID)[0];
+            MGrid.DataContext = mc;
+
+
         }
 
         private void btn_InsertContract_Click(object sender, RoutedEventArgs e)
@@ -51,6 +84,7 @@ namespace ContractStatementManagementSystem
             InsertContract ic = new InsertContract();
             ic.Show();
             ic.mw = this;
+           // this.oct = ic.oct;
         }
 
         private void btn_deleteContract_Click(object sender, RoutedEventArgs e)
@@ -58,11 +92,10 @@ namespace ContractStatementManagementSystem
             MessageBoxResult result = MessageBox.Show("你确定要删除本合同吗？", "提示", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.No, MessageBoxOptions.None);
             if (result == MessageBoxResult.Yes)
             {
-                ContractContent contractContent = listView_Contract.SelectedItem as ContractContent;
-                main.ContractContents.Remove(contractContent);
+               
 
                 MessageBox.Show("删除成功！");
-                listView_Contract.SelectedIndex = main.ContractContents.Count - 1;
+                //listView_Contract.SelectedIndex;
             }
         }
 
@@ -108,59 +141,9 @@ namespace ContractStatementManagementSystem
             }
         }
 
-        public void InsertContractContent(string contractName, string customer, string contract_Type, string contract_Amount, string count, string contract_Number, string contract_Date)
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ContractContent contractContent = new ContractContent();
-            contractContent.ID = Guid.NewGuid();
-            contractContent.Customer = customer;
-            contractContent.Contract_Type = contract_Type;
-            contractContent.Contract_Amount = decimal.Parse(contract_Amount);
-            contractContent.Count = double.Parse(count);
-            contractContent.Contract_Number = contract_Number;
-            contractContent.Contract_Date = contract_Date;
-            contractContent.ContractName = contractName;
-            contractContent.Contract_Datas = new ObservableCollection<Contract_Data>();
-            main.ContractContents.Add(contractContent);
-            //填充销售页内容
-            InsertSales(contractContent);
-        }
 
-        private void InsertSales(ContractContent contractContent)
-        {
-            Sales sales = new Sales();
-            sales.Contract_ID = contractContent.ID;
-            sales.ContractName = contractContent.ContractName;
-            sales.Contract_Amount = contractContent.Contract_Amount;
-            sales.AmountCollection = 0;
-            sales.NoAmountCollection = contractContent.Contract_Amount;
-            sales.SalesLogs = new ObservableCollection<SalesLog>();
-            main.Sales.Add(sales);
-        }
-
-        public void UpdateContractContent(string logName, string service, string amount)
-        {
-            //已收金额&未收金额相应改变
-            sale.AmountCollection += decimal.Parse(amount);
-            sale.NoAmountCollection -= decimal.Parse(amount);
-            //添加一条日志
-            SalesLog salesLog = new SalesLog();
-            salesLog.LogName = logName;
-            salesLog.Service = service;
-            salesLog.Amount = decimal.Parse(amount);
-            salesLog.Operator = "华嘉熠";
-            salesLog.OperationDate = DateTime.Now.ToString();
-            sale.SalesLogs.Add(salesLog);
-            //刷新Label控件，目前只能以这种方法能刷新
-            if (listView_Contract.SelectedIndex == 0)
-            {
-                listView_Contract.SelectedIndex += 1;
-                listView_Contract.SelectedIndex -= 1;
-            }
-            else
-            {
-                listView_Contract.SelectedIndex -= 1;
-                listView_Contract.SelectedIndex += 1;
-            }
         }
     }
 }

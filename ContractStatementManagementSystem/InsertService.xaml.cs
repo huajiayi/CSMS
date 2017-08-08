@@ -1,4 +1,4 @@
-﻿using ContractStatementManagementSystem.Model;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,12 +31,11 @@ namespace ContractStatementManagementSystem
         {
             string service = tb_Service.Text.ToString().Trim();
             Contract_Data contract_Data = new Contract_Data();
-            ContractContent contractContent = mw.listView_Contract.SelectedItem as ContractContent;
-            contract_Data.ID = 1;
+            contract_Data.Contract_ID = mw.ct.ID;
+            contract_Data.ID = Guid.NewGuid();
             contract_Data.Service = service;
-            contract_Data.Contract_ID = contractContent.ID;
-            contractContent.Contract_Datas.Add(contract_Data);
-
+            mw.ocd.Add(contract_Data);
+            SqlQuery.insert(contract_Data);
             MessageBox.Show("操作成功！");
             this.Close();
         }

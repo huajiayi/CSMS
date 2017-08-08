@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,11 @@ namespace ContractStatementManagementSystem
     /// </summary>
     public partial class InsertContract : Window
     {
+        //public ObservableCollection<ContractNameT> oct; 
         public MainWindow mw;
         public InsertContract()
         {
+            
             InitializeComponent();
         }
 
@@ -35,10 +38,29 @@ namespace ContractStatementManagementSystem
             string count = tb_Count.Text.ToString().Trim();
             string contract_Number = tb_Contract_Number.Text.ToString().Trim();
             string contract_Date = DateTime.Parse(tb_Contract_Date.ToString().Trim()).ToShortDateString();
-            mw.InsertContractContent(contractName, customer, contract_Type, contract_Amount, count, contract_Number, contract_Date);
+            ContractNameT ct = new ContractNameT();
+            ct.ID = Guid.NewGuid();
+            ct.Customer = customer;
+            ct.ContractName = contractName;
+            ct.Contract_Type = contract_Type;
+            ct.Contract_Amount = Convert.ToDecimal(contract_Amount);
+            ct.Contract_Date = contract_Date;
+            ct.Contract_Number =contract_Number;
+            ct.Count = Convert.ToDouble(count);
+            Contract_Data cd = new Contract_Data();
+            cd.ID = Guid.NewGuid();
+            cd.Contract_ID = ct.ID;
+            cd.Service = "总服务";
+            GetData.first(ct,cd);
+            //oct = new ObservableCollection<ContractNameT>();
+            var a = mw.oct;
+            
 
+
+            mw.oct.Add(ct);
+            mw.oct = new ObservableCollection<ContractNameT>(mw.oct.OrderByDescending(x => DateTime.Parse(x.Contract_Date)));
             MessageBox.Show("操作成功！");
-            mw.listView_Contract.SelectedIndex = mw.main.ContractContents.Count - 1;
+           
             this.Close();
         }
     }

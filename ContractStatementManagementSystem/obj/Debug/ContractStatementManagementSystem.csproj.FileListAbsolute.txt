@@ -25,3 +25,32 @@ c:\users\lijun\documents\visual studio 2013\Projects\ContractStatementManagement
 c:\users\lijun\documents\visual studio 2013\Projects\ContractStatementManagementSystem\ContractStatementManagementSystem\obj\Debug\InsertContract.g.cs
 C:\Users\lijun\Documents\Visual Studio 2013\Projects\ContractStatementManagementSystem\ContractStatementManagementSystem\obj\Debug\InsertService.baml
 C:\Users\lijun\Documents\Visual Studio 2013\Projects\ContractStatementManagementSystem\ContractStatementManagementSystem\obj\Debug\InsertService.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\bin\Debug\ContractStatementManagementSystem.exe.config
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.exe
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.pdb
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.csprojResolveAssemblyReference.cache
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertAccountant.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertContract.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertProduction.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertProject.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertSales.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertService.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertWarehouse.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\MainWindow.baml
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertAccountant.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertContract.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertProduction.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertProject.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertSales.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertService.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\InsertWarehouse.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\MainWindow.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\App.g.cs
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem_MarkupCompile.cache
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.g.resources
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.Properties.Resources.resources
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.csproj.GenerateResource.Cache
+D:\workspace1\CSMS\ContractStatementManagementSystem\bin\Debug\ContractStatementManagementSystem.exe
+D:\workspace1\CSMS\ContractStatementManagementSystem\bin\Debug\ContractStatementManagementSystem.pdb
+D:\workspace1\CSMS\ContractStatementManagementSystem\bin\Debug\Dapper.dll
+D:\workspace1\CSMS\ContractStatementManagementSystem\bin\Debug\Dapper.xml

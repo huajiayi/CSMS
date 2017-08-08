@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\lijun\Documents\Visual Studio 2013\Projects\ContractStatementManagementSystem\ContractStatementManagementSystem\obj\Debug\
+D:\workspace1\CSMS\ContractStatementManagementSystem\obj\Debug\
 ContractStatementManagementSystem
 none
 false
 DEBUG;TRACE
-C:\Users\lijun\Documents\Visual Studio 2013\Projects\ContractStatementManagementSystem\ContractStatementManagementSystem\App.xaml
+D:\workspace1\CSMS\ContractStatementManagementSystem\App.xaml
 8-28096357
 
-291679104541
-12-1401562060
+31-315578207
+14-1166026522
 InsertAccountant.xaml;InsertContract.xaml;InsertProduction.xaml;InsertProject.xaml;InsertSales.xaml;InsertService.xaml;InsertWarehouse.xaml;MainWindow.xaml;
 
 False

@@ -30,7 +30,17 @@ namespace ContractStatementManagementSystem
             string logName = tb_LogName.Text.ToString().Trim();
             string productionQuantity = tb_ProductionQuantity.Text.ToString().Trim();
             string productionDate = DateTime.Parse(tb_ProductionDate.ToString().Trim()).ToShortDateString();
-
+            ProductionerLog pl = new ProductionerLog();
+            pl.ID = Guid.NewGuid();
+            pl.ContractID = mw.ct.ID;
+            pl.DepartmentID = mw.ppr[0].ID;
+            pl.ProductionCount = Convert.ToDouble(productionQuantity);
+  
+            pl.ProductionDate = productionDate;
+            pl.LogDate = DateTime.Now.ToString();
+            pl.LogName = logName;
+            mw.opr.Add(pl);
+            mw.ppr[0] = GetData.ProductionerGet(pl, mw.ppr)[0];
             MessageBox.Show("操作成功！");
             this.Close();
         }

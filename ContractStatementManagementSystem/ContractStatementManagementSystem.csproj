@@ -34,7 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="sql\GetData.cs" />
+    <Compile Include="sql\SqlQuery.cs" />
     <Page Include="InsertAccountant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,19 +123,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Accountant.cs" />
-    <Compile Include="Model\AccountantLog.cs" />
-    <Compile Include="Model\ContractContent.cs" />
-    <Compile Include="Model\Contract_Data.cs" />
-    <Compile Include="Model\Main.cs" />
-    <Compile Include="Model\Productioner.cs" />
-    <Compile Include="Model\ProductionerLog.cs" />
-    <Compile Include="Model\Project.cs" />
-    <Compile Include="Model\ProjectLog.cs" />
-    <Compile Include="Model\Sales.cs" />
-    <Compile Include="Model\SalesLog.cs" />
-    <Compile Include="Model\Warehouse.cs" />
-    <Compile Include="Model\WarehouseLog.cs" />
+    <Compile Include="model\Accountant.cs" />
+    <Compile Include="model\AccountantLog.cs" />
+    <Compile Include="model\ContractNameT.cs" />
+    <Compile Include="model\Contract_Data.cs" />
+    <Compile Include="model\MClass.cs" />
+    <Compile Include="model\Productioner.cs" />
+    <Compile Include="model\ProductionerLog.cs" />
+    <Compile Include="model\Project.cs" />
+    <Compile Include="model\ProjectLog.cs" />
+    <Compile Include="model\Sales.cs" />
+    <Compile Include="model\SalesLog.cs" />
+    <Compile Include="model\Warehouse.cs" />
+    <Compile Include="model\WarehouseLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -146,6 +153,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

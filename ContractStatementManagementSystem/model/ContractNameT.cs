@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContractStatementManagementSystem.Model
+namespace ContractStatementManagementSystem
 {
-    public class ContractContent
+  public class ContractNameT
     {
         public Guid ID { get; set; }
         public string Customer { get; set; }
@@ -17,7 +16,5 @@ namespace ContractStatementManagementSystem.Model
         public string Contract_Number { get; set; }
         public string Contract_Date { get; set; }
         public string ContractName { get; set; }
-        public ObservableCollection<Contract_Data> Contract_Datas { get; set; }  //服务条款
-
     }
 }

@@ -34,12 +34,30 @@ namespace ContractStatementManagementSystem
             string affirmIncomeAmount = tb_AffirmIncomeAmount.Text.ToString().Trim();
             string invoiceCount = tb_InvoiceCount.Text.ToString().Trim();
             string invoiceAmount = tb_InvoiceAmount.Text.ToString().Trim();
-            string amount = tb_Amount.Text.ToString().Trim();
             string cost = tb_Cost.Text.ToString().Trim();
             string material = tb_Material.Text.ToString().Trim();
             string subtotal = tb_Subtotal.Text.ToString().Trim();
             string grossrofitMargin = tb_GrossrofitMargin.Text.ToString().Trim();
-
+            string name = Name.Text.ToString().Trim(); ;
+            AccountantLog al = new AccountantLog();
+            al.ID = Guid.NewGuid();
+            al.LogName = logName;
+            al.LogDate = DateTime.Now.ToString();
+            // al.ServiceID=
+            al.Name = name;
+            al.Service = service;
+            al.AffirmIncomeGist = affirmIncomeAmount;
+            al.AffirmIncomeAmount = Convert.ToDecimal(affirmIncomeAmount); 
+            al.InvoiceCount = Convert.ToDouble(invoiceCount);
+            al.InvoiceAmount = Convert.ToDecimal(invoiceAmount);
+            al.Cost= Convert.ToDouble(cost);
+            al.Material= Convert.ToDecimal(material);
+            al.GrossrofitMargin= Convert.ToDouble(grossrofitMargin);
+            al.Subtotal= Convert.ToDecimal(subtotal);
+            al.ContractID = mw.ct.ID;
+            al.DepartmentID = mw.aac[0].ID;
+            mw.oac.Add(al);
+            mw.aac[0] = GetData.AccountantGet(al,mw.aac)[0];
             MessageBox.Show("操作成功！");
             this.Close();
         }
