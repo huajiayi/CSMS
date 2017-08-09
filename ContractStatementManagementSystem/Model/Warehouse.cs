@@ -1,16 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ContractStatementManagementSystem
 {
-   public class Warehouse
+    public class Warehouse : INotifyPropertyChanged
     {
        public Guid ID { set; get; }
        public Guid ContractID { set; get; } //合同id
-       public double Reserves { set; get; } //仓储
+       private double _reserves;
+       public double Reserves //库存量
+       {
+           get { return _reserves; }
+
+           set
+           {
+               _reserves = value;
+
+               if (PropertyChanged != null)
+               {
+                   PropertyChanged(this, new PropertyChangedEventArgs("Reserves"));
+
+               }
+           } 
+       }
        public double ShippedCount { set; get; }  //已发货量
        public double NoShippedCount { set; get; } //未发货量
        public Warehouse() { }
@@ -20,7 +36,8 @@ namespace ContractStatementManagementSystem
             this.Reserves = Reserves;
             this.ShippedCount = ShippedCount;
             this.NoShippedCount = NoShippedCount;
-        } 
+        }
+       public event PropertyChangedEventHandler PropertyChanged;
 
     }
 }

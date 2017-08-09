@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ContractStatementManagementSystem
 {
@@ -50,7 +51,6 @@ namespace ContractStatementManagementSystem
 
         private void listView_Contract_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             ct=(ContractNameT)listView_Contract.SelectedItem;
             ocd= SqlQuery.ContractDataQuery(ct.ID);
             ListViewSerices.ItemsSource = ocd;
@@ -76,14 +76,13 @@ namespace ContractStatementManagementSystem
             mc.ct = SqlQuery.ContractVQuery(ct.ID)[0];
             MGrid.DataContext = mc;
 
-
         }
 
         private void btn_InsertContract_Click(object sender, RoutedEventArgs e)
         {
             InsertContract ic = new InsertContract();
-            ic.Show();
             ic.mw = this;
+            ic.ShowDialog();
            // this.oct = ic.oct;
         }
 
@@ -102,8 +101,8 @@ namespace ContractStatementManagementSystem
         private void btn_InsertService_Click(object sender, RoutedEventArgs e)
         {
             InsertService ins = new InsertService();
-            ins.Show();
             ins.mw = this;
+            ins.ShowDialog();
         }
 
         private void btn_Insert_Click(object sender, RoutedEventArgs e)
@@ -113,37 +112,29 @@ namespace ContractStatementManagementSystem
             {
                 case "btn_InsertWarehouse":
                     InsertWarehouse iw = new InsertWarehouse();
-                    iw.Show();
                     iw.mw = this;
+                    iw.ShowDialog();
                     break;
                 case "btn_InsertAccountant":
-                    InsertAccountant ia = new InsertAccountant();
-                    ia.Show();
-                    ia.mw = this;
+                    InsertAccountant ia = new InsertAccountant(this);
+                    ia.ShowDialog();
                     break;
                 case "btn_InsertProduction":
                     InsertProduction ip = new InsertProduction();
-                    ip.Show();
                     ip.mw = this;
+                    ip.ShowDialog();
                     break;
                 case "btn_InsertProject":
-                    InsertProject ipj = new InsertProject();
-                    ipj.Show();
-                    ipj.mw = this;
+                    InsertProject ipj = new InsertProject(this);
+                    ipj.ShowDialog();
                     break;
                 case "btn_InsertSales":
-                    InsertSales isl = new InsertSales();
-                    isl.Show();
-                    isl.mw = this;
+                    InsertSales isl = new InsertSales(this);
+                    isl.ShowDialog();
                     break;
                 default:
                     break;
             }
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

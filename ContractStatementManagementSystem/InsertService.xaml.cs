@@ -30,14 +30,22 @@ namespace ContractStatementManagementSystem
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
             string service = tb_Service.Text.ToString().Trim();
-            Contract_Data contract_Data = new Contract_Data();
-            contract_Data.Contract_ID = mw.ct.ID;
-            contract_Data.ID = Guid.NewGuid();
-            contract_Data.Service = service;
-            mw.ocd.Add(contract_Data);
-            SqlQuery.insert(contract_Data);
-            MessageBox.Show("操作成功！");
-            this.Close();
+
+            if (string.IsNullOrEmpty(service))
+            {
+                MessageBox.Show("输入值不能为空");
+            }
+            else
+            {
+                Contract_Data contract_Data = new Contract_Data();
+                contract_Data.Contract_ID = mw.ct.ID;
+                contract_Data.ID = Guid.NewGuid();
+                contract_Data.Service = service;
+                mw.ocd.Add(contract_Data);
+                SqlQuery.insert(contract_Data);
+                MessageBox.Show("操作成功！");
+                this.Close();
+            }
         }
     }
 }

@@ -58,8 +58,8 @@
                     </ListView.View>
                 </ListView>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1">
-                    <Button Name="btn_InsertContract" Content="添加合同"  Margin="5" Click="btn_InsertContract_Click"></Button>
-                    <Button Name="btn_deleteContract" Content="删除合同" Margin="5" Click="btn_deleteContract_Click"></Button>
+                    <Button x:Name="btn_InsertContract" Content="添加合同"  Margin="5" Click="btn_InsertContract_Click"/>
+                    <Button x:Name="btn_deleteContract" Content="删除合同" Margin="5" Click="btn_deleteContract_Click"/>
                 </StackPanel>
             </Grid>
             <Grid Name="MGrid" Grid.Column="2">
@@ -97,7 +97,7 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel>
-                                <ListView Name="ListViewSerices" ItemsSource="{Binding Path=Contract_Datas}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto" SelectionChanged="ListView_SelectionChanged">
+                                <ListView Name="ListViewSerices" ItemsSource="{Binding Path=Contract_Datas}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto">
                                     <ListView.View>
                                         <GridView>
                                             <GridView.Columns>
@@ -144,7 +144,7 @@
                                                 <Label Content="{Binding Path=sl[0].NoAmountCollection}"></Label>
                                             </StackPanel>
                                         </StackPanel>
-                                    
+
                                     </StackPanel>
                                 </Expander>
                                 <Expander IsExpanded="True" Header="日志">
@@ -152,13 +152,13 @@
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                             <Button Name="btn_InsertSales" Width="75" Height="23" Content="收款" Margin="5" Click="btn_Insert_Click"/>
                                         </StackPanel>
-                                        <DataGrid Height="400" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Path=osl}" IsReadOnly="True" CanUserAddRows="False">
+                                        <DataGrid Name="dataGrid_Sales" Height="400" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Path=osl}" IsReadOnly="True" CanUserAddRows="False">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="日志名" Width="*" Binding="{Binding Path=LogName}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=Service}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="收款金额" Width="*" Binding="{Binding Path=AffirmIncomeAmount}"></DataGridTextColumn>
                                                 <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                                                <DataGridTextColumn SortDirection="Ascending" Header="操作日期" Width="*" Binding="{Binding Path=LogDate}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="操作日期" Width="*" Binding="{Binding Path=LogDate}"></DataGridTextColumn>
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </StackPanel>
@@ -326,11 +326,11 @@
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="已收金额："></Label>
-                                                <Label Content="{Binding Path=ac[0].SubAffirmIncomeAmount}"></Label>
+                                                <Label Content="{Binding Path=sl[0].SubAffirmIncomeAmount}"></Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="未收金额："></Label>
-                                                <Label Content="{Binding Path=ac[0].NoAffirmIncomeAmount}"></Label>
+                                                <Label Content="{Binding Path=sl[0].NoAmountCollection}"></Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="确认收入依据："></Label>
@@ -351,7 +351,7 @@
                                                 <Label Content="已开票金额（含税）："></Label>
                                                 <Label Content="{Binding Path=ac[0].SubInvoiceAmount}"></Label>
                                             </StackPanel>
-                                        
+
                                             <StackPanel Orientation="Horizontal">
                                                 <Label Content="已结转成本数量："></Label>
                                                 <Label Content="{Binding Path=ac[0].SubCost}"></Label>

@@ -9,7 +9,10 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="生产数量："/>
-            <TextBox Name="tb_ProductionQuantity" Margin="5" Width="170" Height="23"/>
+            <TextBox MaxLength="5" Name="tb_ProductionQuantity" Margin="5" Width="170" Height="23" TextChanged="tb_ProductionQuantity_TextChanged"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">
+            <TextBlock Name="tb_ProductionQuantity_Warn" Text="生产数量不能大于未生产数量" Foreground="Red" Visibility="Collapsed"></TextBlock>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="生产时间："/>

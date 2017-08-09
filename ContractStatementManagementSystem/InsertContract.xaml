@@ -14,7 +14,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="合同类别："/>
-                <ComboBox Name="cb_Contract_Type" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Type}">
+                <ComboBox SelectedIndex="0" Name="cb_Contract_Type" Margin="5" Width="170" Height="23">
                     <ComboBoxItem Content="风电监测系统"></ComboBoxItem>
                     <ComboBoxItem Content="水泵监测系统"></ComboBoxItem>
                     <ComboBoxItem Content="格莱茵CMS"></ComboBoxItem>
@@ -26,11 +26,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="合同金额（人民币元）："/>
-                <TextBox Name="tb_Contract_Amount" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Amount}"/>
+                <TextBox MaxLength="15" Name="tb_Contract_Amount" Margin="5" Width="170" Height="23" Text="{Binding Path=Contract_Amount}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="数量（套/个）："/>
-                <TextBox Name="tb_Count" Margin="5" Width="170" Height="23" Text="{Binding Path=Count}"/>
+                <TextBox MaxLength="5" Name="tb_Count" Margin="5" Width="170" Height="23" Text="{Binding Path=Count}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Margin="5" Text="合同编号："/>

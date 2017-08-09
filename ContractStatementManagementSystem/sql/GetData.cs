@@ -30,12 +30,13 @@ namespace ContractStatementManagementSystem
             return ow;
 
         }
-        public static ObservableCollection<Productioner> ProductionerGet(ProductionerLog pl, ObservableCollection<Productioner> op )
+        public static ObservableCollection<Productioner> ProductionerGet(ProductionerLog pl, ObservableCollection<Productioner> op,ObservableCollection<Warehouse> w )
         {
             SqlQuery.insert(pl);
             //var a = opl.Sum(x => x.ProductionCount);
             op[0].TotalProduct += pl.ProductionCount;
             op[0].NoTotalProduct -=pl.ProductionCount;
+            w[0].Reserves = op[0].TotalProduct - w[0].ShippedCount;
             SqlQuery.updata(op[0]);
             return op;
         }
@@ -108,7 +109,7 @@ namespace ContractStatementManagementSystem
             wh.NoShippedCount = ct.Count;
             wh.Reserves = 0;
             wh.ShippedCount = 0;
-            SqlQuery.Contractinsert(ct,ac,pr,pt,sl,wh,cd);
+            SqlQuery.Contractinsert(ct,ac,pr,pt,sl,wh);
             
 
          }

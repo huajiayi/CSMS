@@ -13,17 +13,17 @@ namespace ContractStatementManagementSystem
     public class SqlQuery
     {
         public static string @string = ConfigurationManager.ConnectionStrings["MHCC_sales"].ConnectionString;
-        public static void Contractinsert( ContractNameT ct,Accountant ac,Productioner pr,Project pj,Sales sa,Warehouse wh,Contract_Data cd) {
+        public static void Contractinsert( ContractNameT ct,Accountant ac,Productioner pr,Project pj,Sales sa,Warehouse wh) {
             using (var conn = new SqlConnection(@string))
             {
                 string sql0 = String.Format(@"insert into ContractNameT (ID,Customer,Contract_Type,Contract_Amount,Count,Contract_Number,Contract_Date,ContractName) values('{7}','{0}','{1}',{2},{3},'{4}','{5}','{6}');", ct.Customer, ct.Contract_Type, ct.Contract_Amount, ct.Count, ct.Contract_Number, ct.Contract_Date,ct.ContractName,ct.ID);
-                string sql1 = String.Format(@"insert into Contract_Data (ID,Service,Contract_ID) values('{0}','{1}','{2}');", cd.ID,cd.Service, cd.Contract_ID);
+                //string sql1 = String.Format(@"insert into Contract_Data (ID,Service,Contract_ID) values('{0}','{1}','{2}');", cd.ID,cd.Service, cd.Contract_ID);
                 string sql2 = String.Format(@"insert into Accountant (ID,ContractID,AffirmIncomeGist,SubAffirmIncomeAmount,SubInvoiceCount,SubInvoiceAmount,SubCost,SubMaterial,Subworker,SubManufacturing_Costs,AvgGrossrofitMargin,NoAffirmIncomeAmount,Subtotal) values('{0}','{1}','{2}',{3},{4},{5},{6},{7},{8},{9},{10},{11},{12});", ac.ID,ac.ContractID,ac.AffirmIncomeGist,ac.SubAffirmIncomeAmount, ac.SubInvoiceCount, ac.SubInvoiceAmount, ac.SubCost, ac.SubMaterial, ac.Subworker, ac.SubManufacturing_Costs, ac.AvgGrossrofitMargin,ac.NoAffirmIncomeAmount,ac.Subtotal);
                 string sql3 = String.Format(@"insert into Productioner (ID,ContractID,TotalProduct,NoTotalProduct) values('{0}','{1}',{2},{3});",pr.ID,pr.ContractID,pr.TotalProduct,pr.NoTotalProduct);
                 string sql4 = String.Format(@"insert into Project (ID,ContractID,DompletedDate,DompletedAcceptanceDate) values('{0}','{1}','{2}','{3}');", pj.ID,pj.ContractID,pj.DompletedDate,pj.DompletedAcceptanceDate);
                 string sql5 = String.Format(@"insert into Sales (ID,ContractID,AmountCollection,NoAmountCollection,SubAffirmIncomeAmount,SubInvoiceCount,SubInvoiceAmount) values('{0}','{1}',{2},'{3}',{4},{5},{6});", sa.ID,sa.ContractID,sa.AmountCollection,sa.NoAmountCollection,sa.SubAffirmIncomeAmount,sa.SubInvoiceCount,sa.SubInvoiceAmount);
                 string sql6 = String.Format(@"insert into Warehouse (ID,ContractID,Reserves,ShippedCount,NoShippedCount) values('{0}','{1}',{2},{3},{4});",wh.ID,wh.ContractID,wh.Reserves,wh.ShippedCount,wh.NoShippedCount);
-                string[] sqls = { sql0, sql1, sql2, sql3, sql4, sql5,sql6 };
+                string[] sqls = { sql0,  sql2, sql3, sql4, sql5,sql6 };
                 string s=string.Concat(sqls);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(s, conn);

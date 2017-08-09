@@ -9,7 +9,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="服务款项："/>
-            <TextBox Name="tb_Service" Margin="5" Width="170" Height="23"/>
+            <ComboBox Name="cb_Service" Margin="5" Width="170" Height="23" DisplayMemberPath="Service"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="确认收入依据："/>
@@ -46,7 +46,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="操作人："/>
-            <TextBox Name="Name" Margin="5" Width="170" Height="23"/>
+            <TextBox Name="tb_Name" Margin="5" Width="170" Height="23"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Margin="5" Text="2017年1-12月毛利率："/>
