@@ -234,6 +234,16 @@ namespace ContractStatementManagementSystem
             }
             }
 
+        public static void delete(Guid a)
+        {
+            string s = String.Format(@"delete from ContractNameT where ID ='{0}'", a);
+            using (var conn = new SqlConnection(@string))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(s, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
         public static IEnumerable<T> Query<T>(string sql, object parameter = null)
         {
 

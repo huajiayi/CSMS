@@ -52,6 +52,11 @@ namespace ContractStatementManagementSystem
         private void listView_Contract_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ct=(ContractNameT)listView_Contract.SelectedItem;
+            if (ct == null)
+            {
+                listView_Contract.SelectedIndex = 0;
+                ct = (ContractNameT)listView_Contract.SelectedItem;
+            }
             ocd= SqlQuery.ContractDataQuery(ct.ID);
             ListViewSerices.ItemsSource = ocd;
             MClass mc = new MClass();
@@ -91,8 +96,9 @@ namespace ContractStatementManagementSystem
             MessageBoxResult result = MessageBox.Show("你确定要删除本合同吗？", "提示", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.No, MessageBoxOptions.None);
             if (result == MessageBoxResult.Yes)
             {
-               
 
+                SqlQuery.delete(ct.ID);
+                oct.Remove(ct);
                 MessageBox.Show("删除成功！");
                 //listView_Contract.SelectedIndex;
             }
