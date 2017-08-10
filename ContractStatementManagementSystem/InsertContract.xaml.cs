@@ -25,6 +25,7 @@ namespace ContractStatementManagementSystem
         public InsertContract()
         {
             InitializeComponent();
+            tb_Contract_Date.SelectedDate = DateTime.Now;
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)

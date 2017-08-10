@@ -25,6 +25,7 @@ namespace ContractStatementManagementSystem
         public InsertWarehouse()
         {
             InitializeComponent();
+            tb_ShippedDate.SelectedDate = DateTime.Now;
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)

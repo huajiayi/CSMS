@@ -23,6 +23,7 @@ namespace ContractStatementManagementSystem
         public InsertProduction()
         {
             InitializeComponent();
+            tb_ProductionDate.SelectedDate = DateTime.Now;
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)

@@ -12,16 +12,16 @@
             <ComboBox Name="cb_Service" Margin="5" Width="170" Height="23" DisplayMemberPath="Service"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="施工日期："/>
-            <DatePicker Name="tb_ConstructionDate" Margin="5" Width="170"/>
+            <TextBlock Margin="5" Text="类型："/>
+            <ComboBox Name="cb_Type" Margin="5" Width="170" Height="23" SelectionChanged="cb_Type_SelectionChanged">
+                <ComboBoxItem Content="施工日期"></ComboBoxItem>
+                <ComboBoxItem Content="竣工日期"></ComboBoxItem>
+                <ComboBoxItem Content="取得竣工验收单日期"></ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="竣工日期："/>
-            <DatePicker Name="tb_DompletedDate" Margin="5" Width="170"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <TextBlock Margin="5" Text="取得竣工验收单日期："/>
-            <DatePicker Name="tb_DompletedAcceptanceDate" Margin="5" Width="170"/>
+            <TextBlock Name="lbl_Date" Margin="5" Text="施工日期："/>
+            <DatePicker Name="tb_TypeDate" Margin="5" Width="170"/>
         </StackPanel>
         <Button Name="btn_Save" Content="保存" Width="75" Margin="0,20,0,0" Click="btn_Save_Click"></Button>
     </StackPanel>

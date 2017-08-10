@@ -61,7 +61,6 @@ C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\ContractS
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\ContractStatementManagementSystem.pdb
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Dapper.dll
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Dapper.xml
-C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\InsertAccountant.baml
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\InsertContract.baml
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\InsertProduction.baml
@@ -83,3 +82,15 @@ C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractS
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.g.resources
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.Properties.Resources.resources
 C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.csproj.GenerateResource.Cache
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem_Content.g.cs
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.dll
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.GridView.dll
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.Input.dll
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.Navigation.dll
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Data.dll
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.xml
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.GridView.xml
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.Input.xml
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Controls.Navigation.xml
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\bin\Debug\Telerik.Windows.Data.xml
+C:\Users\lijun\GitHub\CSMS\ContractStatementManagementSystem\obj\Debug\ContractStatementManagementSystem.csprojResolveAssemblyReference.cache

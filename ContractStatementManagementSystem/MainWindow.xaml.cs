@@ -142,5 +142,15 @@ namespace ContractStatementManagementSystem
                     break;
             }
         }
+
+        private void btn_EditService_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_DeleteService3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
