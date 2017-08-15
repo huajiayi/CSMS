@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ContractStatementManagementSystem
 {
-   public class ProjectLog
+   public class ProjectLog : INotifyPropertyChanged
     {
        public Guid ID { set; get; } 
        public Guid DepartmentID { set; get; } //部门id
@@ -17,7 +18,23 @@ namespace ContractStatementManagementSystem
        public Guid ContractID { set; get; } //合同id
        public  string LogName { set; get; }//日志名
        public Guid ServiceID { set; get; } //服务名
-        public string Service { get; set; }//服务
+        public string service;// 服务项目
+        public string Service // 服务项目
+        {
+            get { return service; }
+
+            set
+            {
+                service = value;
+
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Service"));
+
+                }
+            }
+        }
         public  string ProjectStart { get; set; }//施工日期
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

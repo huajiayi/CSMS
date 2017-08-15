@@ -13,8 +13,9 @@ namespace ContractStatementManagementSystem
         public ObservableCollection<AccountantLog> oac{get;set;}
         public ObservableCollection<Productioner> pr { get; set; }
         public ObservableCollection<ProductionerLog> opr { get; set; }
-        public ObservableCollection<Project> pt { get; set; }
+        //public ObservableCollection<Project> pt { get; set; }
         public ObservableCollection<ProjectLog> opt { get; set; }
+        public ObservableCollection<Project_data> pt { get; set; }
         public ObservableCollection<Sales> sl { get; set; }
         public ObservableCollection<SalesLog> osl { get; set; }
         public ObservableCollection<Warehouse> wh { get; set; }

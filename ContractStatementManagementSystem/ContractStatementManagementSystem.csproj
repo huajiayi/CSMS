@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="model\Project_data.cs" />
     <Compile Include="sql\GetData.cs" />
     <Compile Include="sql\SqlQuery.cs" />
     <Page Include="InsertAccountant.xaml">

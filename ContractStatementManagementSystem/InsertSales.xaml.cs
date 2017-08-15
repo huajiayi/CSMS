@@ -53,6 +53,7 @@ namespace ContractStatementManagementSystem
                     sl.ID = Guid.NewGuid();
                     sl.ContractID = mw.ct.ID;
                     sl.Service = service;
+                    sl.ServiceID = item.ID;
                     sl.AffirmIncomeAmount = Convert.ToDecimal(amount);
                     sl.LogDate = DateTime.Now.ToString();
                     sl.LogName = logName;
@@ -62,7 +63,7 @@ namespace ContractStatementManagementSystem
                     this.Close();
                 }
             }
-            catch (Exception)
+            catch (FormatException)
             {
                 MessageBox.Show("收款金额只能为正数");
             }   

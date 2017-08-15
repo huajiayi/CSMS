@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ContractStatementManagementSystem
 {
-   public class AccountantLog
+   public class AccountantLog : INotifyPropertyChanged
     {
       public Guid ID { get; set; }
       public Guid DepartmentID { get; set; }
@@ -25,7 +26,23 @@ namespace ContractStatementManagementSystem
       public string LogName { get; set; } //日志名
       public Guid ServiceID { get; set; } //服务id
       public string Name { get; set; }//操作人
-      public string Service { get; set; }//服务
+        public string service;// 服务项目
+        public string Service // 服务项目
+        {
+            get { return service; }
+
+            set
+            {
+                service = value;
+
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Service"));
+
+                }
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
     }
 }

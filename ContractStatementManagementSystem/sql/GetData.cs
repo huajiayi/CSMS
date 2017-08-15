@@ -50,12 +50,24 @@ namespace ContractStatementManagementSystem
             SqlQuery.updata(os[0]);
             return os;
         }
-        public static ObservableCollection<Project> ProjectGet(ProjectLog pjl, ObservableCollection<Project> opj) {
+        public static ObservableCollection<Project_data> ProjectGet(ProjectLog pjl,Project_data pd,ObservableCollection<Project_data> opj) {
             SqlQuery.insert(pjl);
-            opj[0].DompletedDate = pjl.DompletedDate;
-            opj[0].DompletedAcceptanceDate = pjl.DompletedAcceptanceDate;
-            opj[0].ProjectStart = pjl.ProjectStart;
-            SqlQuery.updata(opj[0]);
+            //int a = opj.IndexOf(mw.ppt.FirstOrDefault<Project_data>(x => x.ID == item.ID));
+            //pds = SqlQuery.Project_dataQueryByService(mw.ct.ID, item.ID);
+            //opj.Add(pd);
+
+            //Project_data a =opj.FirstOrDefault<Project_data>(x => x.ServiceID == pd.ServiceID);
+            //opj[opj.IndexOf(a)] = pd;
+            //int i = opj.IndexOf(a);
+            //Boolean bb = (i >= 0);
+            //if (bb)
+            //{
+            //    opj.Move(opj.IndexOf(pd), opj.IndexOf(a));
+            //    opj.Remove(a);
+            //    ObservableCollection < Project_data > ppp= SqlQuery.Project_dataQueryByService(pd.ContractID, pd.ServiceID);
+            //    //p
+            //}
+            SqlQuery.insert(pd);
             return opj;
         }
         public static ObservableCollection<Accountant> AccountantGet(AccountantLog al, ObservableCollection<Accountant> a ) {

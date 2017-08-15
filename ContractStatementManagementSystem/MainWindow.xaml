@@ -120,27 +120,23 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel>
-                                <ListView Name="ListViewSerices" ItemsSource="{Binding Path=Contract_Datas}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto">
+                                <ListView x:Name="ListViewSerices" ItemsSource="{Binding Contract_Datas}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Height="300" Width="Auto">
                                     <ListView.View>
                                         <GridView>
-                                            <GridView.Columns>
-                                                <GridViewColumn>
-                                                    <GridViewColumn.Header>
-                                                        <Label Width="150" HorizontalContentAlignment="Center" Content="服务款项"/>
-                                                    </GridViewColumn.Header>
-                                                    <GridViewColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <Label Width="150" Content="{Binding Path=Service}"/>
-                                                        </DataTemplate>
-                                                    </GridViewColumn.CellTemplate>
-                                                </GridViewColumn>
-                                            </GridView.Columns>
+                                            <GridViewColumn>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <Label Width="150" Content="{Binding Service}"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                                <Label Width="150" HorizontalContentAlignment="Center" Content="服务款项"/>
+                                            </GridViewColumn>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <Button Name="btn_InsertService" Content="添加服务款项" Width="100" Click="btn_InsertService_Click"></Button>
-                                <Button Name="btn_EditService" Margin="0,10,0,0" Content="编辑" Width="100" Click="btn_EditService_Click"></Button>
-                                <Button Name="btn_DeleteService3" Margin="0,10,0,0" Content="删除" Width="100" Click="btn_DeleteService3_Click"></Button>
+                                <Button x:Name="btn_InsertService" Content="添加服务款项" Width="100" Click="btn_InsertService_Click"/>
+                                <Button x:Name="btn_EditService" Margin="0,10,0,0" Content="编辑" Width="100" Click="btn_EditService_Click"/>
+                                <Button x:Name="btn_DeleteService3" Margin="0,10,0,0" Content="删除" Width="100" Click="btn_DeleteService3_Click"/>
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
@@ -316,13 +312,13 @@
                                 </Expander>-->
                                 <Expander IsExpanded="True" Header="最新数据">
                                     <StackPanel>
-                                        <DataGrid Height="200" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding Path=a}">
+                                        <DataGrid Height="200" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding Path=pt}">
                                             <DataGrid.Columns>
-                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=a}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="施工日期" Width="*" Binding="{Binding Path=a}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="竣工日期" Width="*" Binding="{Binding Path=a}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="取得竣工验收单日期" Width="*" Binding="{Binding Path=a}"></DataGridTextColumn>
-                                                <DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=a}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="服务款项" Width="*" Binding="{Binding Path=Service}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="施工日期" Width="*" Binding="{Binding Path=ProjectStart}"></DataGridTextColumn> 
+                                                <DataGridTextColumn Header="竣工日期" Width="*" Binding="{Binding Path=DompletedDate}"></DataGridTextColumn>
+                                                <DataGridTextColumn Header="取得竣工验收单日期" Width="*" Binding="{Binding Path=DompletedAcceptanceDate}"></DataGridTextColumn>
+                                                <!--<DataGridTextColumn Header="操作人" Width="*" Binding="{Binding Path=a}"></DataGridTextColumn>-->
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </StackPanel>

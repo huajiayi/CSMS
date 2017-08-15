@@ -23,7 +23,7 @@ namespace ContractStatementManagementSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-       public ObservableCollection<ContractNameT> oct { get; set; }
+        public ObservableCollection<ContractNameT> oct { get; set; }
         public ObservableCollection<Contract_Data> ocd { get; set; }
         public ObservableCollection<AccountantLog> oac { get; set; }
         public ObservableCollection<ProductionerLog> opr { get; set; }
@@ -31,7 +31,7 @@ namespace ContractStatementManagementSystem
         public ObservableCollection<SalesLog> osl { get; set; }
         public ObservableCollection<WarehouseLog> ocw { get; set; }
         public ObservableCollection<Accountant> aac { get; set; }
-        public ObservableCollection<Project> ppt { get; set; }
+        public ObservableCollection<Project_data> ppt { get; set; }
         public ObservableCollection<Sales> ssl { get; set; }
         public ObservableCollection<Productioner> ppr { get; set; }
         public ObservableCollection<Warehouse>  wwh { get; set; }
@@ -72,7 +72,7 @@ namespace ContractStatementManagementSystem
             mc.pr = ppr;
             opr = SqlQuery.ProductionerLogQuery(ct.ID);
             mc.opr = opr;
-            ppt = SqlQuery.ProjectQuery(ct.ID);
+            ppt = SqlQuery.Project_dataQuery(ct.ID);
             mc.pt = ppt;
             opt=mc.opt = SqlQuery.ProjectLogQuery(ct.ID);
             ssl = SqlQuery.SalesQuery(ct.ID);
@@ -87,6 +87,7 @@ namespace ContractStatementManagementSystem
         {
             InsertContract ic = new InsertContract();
             ic.mw = this;
+      
             ic.ShowDialog();
            // this.oct = ic.oct;
         }
@@ -97,7 +98,7 @@ namespace ContractStatementManagementSystem
             if (result == MessageBoxResult.Yes)
             {
 
-                SqlQuery.delete(ct.ID);
+                SqlQuery.DeleteContract(ct.ID);
                 oct.Remove(ct);
                 MessageBox.Show("删除成功！");
                 //listView_Contract.SelectedIndex;
@@ -108,6 +109,7 @@ namespace ContractStatementManagementSystem
         {
             InsertService ins = new InsertService();
             ins.mw = this;
+            ins.type = "f";
             ins.ShowDialog();
         }
 
@@ -145,11 +147,56 @@ namespace ContractStatementManagementSystem
 
         private void btn_EditService_Click(object sender, RoutedEventArgs e)
         {
-
+            InsertService ins = new InsertService();
+            ins.type="edit";
+            ins.mw = this;
+            ins.ShowDialog();
         }
 
         private void btn_DeleteService3_Click(object sender, RoutedEventArgs e)
         {
+            Contract_Data cd = (Contract_Data)ListViewSerices.SelectedItem;
+            ocd.Remove(cd);
+            SqlQuery.DeleteService(cd.ID);
+            int a = opt.Count;
+            int b = ppt.Count;
+            int c = osl.Count;
+            int ee = oac.Count;
+            for (int i=a-1;i>=0;i--) {
+                if (opt[i].ServiceID == cd.ID)
+                {
+
+                    opt.Remove(opt[i]);
+                }
+            }
+            for (int i = b-1; i >=0 ; i--)
+            {
+                if (ppt[i].ServiceID == cd.ID)
+                {
+                    ppt.Remove(ppt[i]);
+                }
+            }
+            for (int i = c-1; i>=0; i--)
+            {
+                if (osl[i].ServiceID == cd.ID)
+                {
+                    osl.Remove(osl[i]);
+                }
+            }
+            for (int i = ee - 1; i >= 0; i--)
+            {
+                if (oac[i].ServiceID == cd.ID)
+                {
+                    oac.Remove(oac[i]);
+                }
+            }
+
+
+
+            //opt.Remove((opt.FirstOrDefault<ProjectLog>(x => x.ServiceID == cd.ID)));
+            //osl.Remove((osl.FirstOrDefault<SalesLog>(x => x.ServiceID == cd.ID)));
+            //oac.Remove((oac.FirstOrDefault<AccountantLog>(x => x.ServiceID == cd.ID)));
+
 
         }
     }

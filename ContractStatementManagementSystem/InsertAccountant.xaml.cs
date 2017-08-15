@@ -75,6 +75,7 @@ namespace ContractStatementManagementSystem
                 al.Subtotal = Convert.ToDecimal(subtotal);
                 al.ContractID = mw.ct.ID;
                 al.DepartmentID = mw.aac[0].ID;
+                al.ServiceID = item.ID;
                 mw.oac.Add(al);
                 mw.aac[0] = GetData.AccountantGet(al, mw.aac)[0];
                 MessageBox.Show("操作成功！");

@@ -30,7 +30,7 @@ namespace ContractStatementManagementSystem
         {
             try
             {
-                string logName = tb_LogName.Text.ToString().Trim();
+              string logName = tb_LogName.Text.ToString().Trim();
             string productionQuantity = tb_ProductionQuantity.Text.ToString().Trim();
             string productionDate;
             if (string.IsNullOrEmpty(tb_ProductionDate.ToString()))
